@@ -9,7 +9,7 @@ use std::cell::{RefMut, UnsafeCell};
 
 use ctru_sys::{consoleClear, consoleInit, consoleSelect, consoleSetWindow, PrintConsole};
 
-use crate::services::gfx::{Flush, Screen, Swap};
+use crate::services::gfx::{Flush, Screen, Side, Swap};
 
 static mut EMPTY_CONSOLE: PrintConsole = unsafe { const_zero::const_zero!(PrintConsole) };
 
@@ -105,10 +105,21 @@ impl<'screen> Console<'screen> {
     /// # }
     /// ```
     #[doc(alias = "consoleInit")]
-    pub fn new<S: ConsoleScreen>(screen: RefMut<'screen, S>) -> Self {
-        let context = Box::<UnsafeCell<PrintConsole>>::default();
+    pub fn new<S: ConsoleScreen>(screen: RefMut<'screen, S>, side: Side) -> Self {
+        let mut context = Box::<UnsafeCell<PrintConsole>>::default();
 
-        unsafe { consoleInit(screen.as_raw(), context.get()) };
+        unsafe {
+            consoleInit(screen.as_raw(), context.get());
+
+            // This is a little hack to print on the right screen, this is not available on the libctru.
+            if side == Side::Right {
+                context.get_mut().frameBuffer = ctru_sys::gfxGetFramebuffer(
+                    screen.as_raw(),
+                    ctru_sys::GFX_RIGHT,
+                    std::ptr::null_mut(),
+                    std::ptr::null_mut() ) as *mut u16;
+            }
+        };
 
         Console { context, screen }
     }

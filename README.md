@@ -2,6 +2,8 @@
 
 This repository is home of the `ctru-rs` project, which aims to bring full control of the Nintendo 3DS console to homebrew developers using Rust.
 
+This project is a fork of the original `ctru-rs` project, that add 3D console support.
+
 ## Structure
 
 This repository is organized as follows:
