@@ -30,7 +30,6 @@ widestring = "1.0.2"
 # Make sure all dependencies use the local packages. This is needed for things
 # like pthread-3ds that rely on ctru-sys, and test-runner which relies on ctru-rs
 ctru-rs = { git = "https://github.com/Tom60chat/ctru-rs" }
-ctru-sys = { git = "https://github.com/Tom60chat/ctru-rs" }
 
 [build-dependencies]
 toml = "0.5"
