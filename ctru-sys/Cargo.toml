@@ -23,7 +23,7 @@ itertools = "0.11.0"
 which = "4.4.0"
 
 [dev-dependencies]
-shim-3ds = { git = "https://github.com/Tom60chat/shim-3ds" }
+shim-3ds = { git = "https://github.com/Tom60-rust3ds/shim-3ds" }
 #test-runner = { git = "https://github.com/rust3ds/test-runner.git" }
 
 [package.metadata.docs.rs]
