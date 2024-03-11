@@ -19,8 +19,8 @@ name = "ctru"
 [patch.'https://github.com/rust3ds/ctru-rs.git']
 # Make sure all dependencies use the local packages. This is needed for things
 # like pthread-3ds that rely on ctru-sys, and test-runner which relies on ctru-rs
-ctru-rs = { path = "https://github.com/Tom60chat/ctru-rs" }
-ctru-sys = { path = "https://github.com/Tom60chat/ctru-rs" }
+ctru-rs = { git = "https://github.com/Tom60chat/ctru-rs" }
+ctru-sys = { git = "https://github.com/Tom60chat/ctru-rs" }
 
 [dependencies]
 cfg-if = "1.0"
