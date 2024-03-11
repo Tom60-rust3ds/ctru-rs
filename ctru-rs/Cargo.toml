@@ -16,6 +16,12 @@ rust-version = "1.73"
 crate-type = ["rlib"]
 name = "ctru"
 
+[patch.'https://github.com/rust3ds/ctru-rs']
+# Make sure all dependencies use the local packages. This is needed for things
+# like pthread-3ds that rely on ctru-sys, and test-runner which relies on ctru-rs
+ctru-rs = { path = "https://github.com/Tom60chat/ctru-rs" }
+ctru-sys = { path = "https://github.com/Tom60chat/ctru-rs" }
+
 [dependencies]
 cfg-if = "1.0"
 ctru-sys = { path = "../ctru-sys", version = "0.5.0" }
