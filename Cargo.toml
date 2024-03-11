@@ -12,6 +12,6 @@ ctru-sys = { path = "ctru-sys" }
 [patch.'https://github.com/Tom60chat/ctru-rs']
 # Make sure all dependencies use the local packages. This is needed for things
 # like pthread-3ds that rely on ctru-sys, and test-runner which relies on ctru-rs
-ctru-rs = { git = "ctru-rs" }
-ctru-sys = { git = "ctru-sys" }
+ctru-rs = { path = "ctru-rs" }
+ctru-sys = { path = "ctru-sys" }
 
