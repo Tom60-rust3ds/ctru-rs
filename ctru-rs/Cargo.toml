@@ -18,7 +18,7 @@ name = "ctru"
 
 [patch.'https://github.com/rust3ds/ctru-rs']
 # This is a temporary patch to use the forked version of ctru-sys
-ctru-sys = { path = "https://github.com/Tom60chat/ctru-rs" }
+ctru-sys = { git = "https://github.com/Tom60chat/ctru-rs" }
 
 [dependencies]
 cfg-if = "1.0"
